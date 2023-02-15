@@ -29,7 +29,15 @@ export default function AuthProvider(props) {
 
   return (
     <AuthContext.Provider
-      value={{ user, loggedIn, checkRegistered, register, login, logout }}
+      value={{
+        user,
+        users,
+        loggedIn,
+        checkRegistered,
+        register,
+        login,
+        logout,
+      }}
     >
       {props.children}
     </AuthContext.Provider>

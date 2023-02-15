@@ -11,6 +11,11 @@
 
 .dashboard {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 50px;
+}
+
+.dashboard-heading {
+  font-size: 10vw;
 }

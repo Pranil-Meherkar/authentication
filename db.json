@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "name": "Pranil",
+      "email": "pranil@nimapinfotech.com",
+      "password": "asdddd",
+      "id": 1
+    },
+    {
+      "name": "Pranil",
+      "email": "rahul@nimapinfotech.com",
+      "password": "asasss",
+      "id": 2
+    },
+    {
+      "name": "Shiva",
+      "email": "shiva@nimapinfotech.com",
+      "password": "qwwqw",
+      "id": 3
+    },
+    {
+      "name": "Deepak",
+      "email": "deepak@nimapinfotech.com",
+      "password": "asddfd",
+      "id": 4
+    },
+    {
+      "name": "rohit",
+      "email": "rohit@nimapinfotech.com",
+      "password": "asdfdf",
+      "id": 5
+    }
+  ],
+  "user": [
+    {
+      "email": "rohit@nimapinfotech.com",
+      "password": "asassa",
+      "id": 1
+    }
+  ]
+}

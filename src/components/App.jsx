@@ -3,26 +3,21 @@ import Login from "./Login";
 import Register from "./Register";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import AuthProvider from "./auth";
-import RequireAuth from "./requireAuth";
+import AuthProvider, { useAuth } from "./auth";
 
 function App() {
+  const auth = useAuth();
+  console.log(auth.loggedIn);
   return (
-    <AuthProvider>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route
-          path="/dashboard"
-          element={
-            <RequireAuth>
-              <Dashboard />
-            </RequireAuth>
-          }
-        />
-        <Route path="/" element={<Navigate to="/dashboard" />} />
-      </Routes>
-    </AuthProvider>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route
+        path="/dashboard"
+        element={auth.loggedIn ? <Dashboard /> : <Login />}
+      />
+      <Route path="/" element={<Navigate to="/dashboard" />} />
+    </Routes>
   );
 }
 

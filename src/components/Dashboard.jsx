@@ -8,8 +8,9 @@ export default function Dashboard() {
   const user = auth.user;
 
   useEffect(() => {
-    let temp = auth.users.find((item) => user.email === item.email);
-    setUserName(temp ? temp.name : "");
+    auth.getData();
+    console.log(auth.users, user, "dashboard users");
+    setUserName(localStorage.getItem("userName"));
   }, []);
 
   console.log(userName);

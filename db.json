@@ -7,7 +7,7 @@
       "id": 1
     },
     {
-      "name": "Pranil",
+      "name": "Rahul",
       "email": "rahul@nimapinfotech.com",
       "password": "asasss",
       "id": 2
@@ -29,13 +29,19 @@
       "email": "rohit@nimapinfotech.com",
       "password": "asdfdf",
       "id": 5
+    },
+    {
+      "name": "Anit",
+      "email": "anit@nimapinfotech.com",
+      "password": "Anit@123",
+      "id": 6
+    },
+    {
+      "name": "Mohini",
+      "email": "mohini@nimapinfotech.com",
+      "password": "Mohini@123",
+      "id": 7
     }
   ],
-  "user": [
-    {
-      "email": "rohit@nimapinfotech.com",
-      "password": "asassa",
-      "id": 1
-    }
-  ]
+  "user": []
 }

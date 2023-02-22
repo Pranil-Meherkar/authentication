@@ -12,7 +12,15 @@ export default function Login() {
   const navigate = useNavigate();
 
   function handleSubmit() {
-    auth.login(user);
+    if (!auth.login(user)) return false;
+
+    setUser((user) => ({
+      ...user,
+      ...{
+        email: "",
+        password: "",
+      },
+    }));
     navigate("/dashboard");
     setLoggedIn(true);
   }

@@ -18,45 +18,34 @@ export default function AuthProvider(props) {
     console.log(users, data.data, "data getData");
   };
 
-  const getUserData = async () => {
-    const data = await axios
-      .get("http://localhost:8080/user")
-      .then(console.log("data recieved"))
-      .catch("Error");
-
-    setUser(data.data[0]);
+  const getUserData = () => {
+    setUser(localStorage.getItem("user"));
   };
 
   useEffect(() => {
     getData();
-    getUserData();
   }, []);
 
-  const login = async (user) => {
-    if (!users.find((item) => user.email === item.email)) {
+  const login = (user) => {
+    const currentUser = users.find((item) => user.email === item.email);
+    if (!currentUser) {
+      return false;
+    }
+
+    if (!(currentUser.password === user.password)) {
       return false;
     }
 
     setUser(user);
+    localStorage.setItem("user", JSON.stringify(user));
+    let name = users.find((item) => user.email === item.email).name;
+    localStorage.setItem("userName", name);
     setLoggedIn(true);
-    await axios
-      .post("http://localhost:8080/user", user)
-      .then(() => {
-        localStorage.setItem("currentUser", user);
-        console.log("login sent");
-      })
-      .catch("Error");
   };
 
-  const logout = async () => {
+  const logout = () => {
+    localStorage.setItem("user", "{}");
     setUser({});
-    await axios
-      .delete("http://localhost:8080/user/1")
-      .then(() => {
-        console.log("logout sent");
-        setLoggedIn(false);
-      })
-      .catch("Error");
   };
 
   const register = async (user) => {
@@ -80,9 +69,9 @@ export default function AuthProvider(props) {
   return (
     <AuthContext.Provider
       value={{
-        user,
         users,
         loggedIn,
+        setLoggedIn,
         getData,
         getUserData,
         checkRegistered,
